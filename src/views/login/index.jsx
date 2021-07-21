@@ -17,10 +17,12 @@ const Login = (props) => {
     setLoading(true);
     login(username, password)
       .then((data) => {
+        console.log(data);
         message.success("登录成功");
         handleUserInfo(data.token);
       })
       .catch((error) => {
+        console.log(error);
         setLoading(false);
         message.error(error);
       });
@@ -29,7 +31,7 @@ const Login = (props) => {
   // 获取用户信息
   const handleUserInfo = (token) => {
     getUserInfo(token)
-      .then((data) => {})
+      .then((data) => { })
       .catch((error) => {
         message.error(error);
       });
@@ -41,12 +43,14 @@ const Login = (props) => {
 
     // 对所有表单字段进行检验
     form.validateFields((err, values) => {
+      console.log(err);
+      console.log(values);
       // 检验成功
       if (!err) {
         const { username, password } = values;
         handleLogin(username, password);
       } else {
-        console.log("检验失败!");
+        console.log("[前端验证不通过]");
       }
     });
   };
@@ -71,7 +75,6 @@ const Login = (props) => {
                     message: "请输入用户名",
                   },
                 ],
-                initialValue: "admin", // 初始值
               })(
                 <Input
                   prefix={
@@ -90,7 +93,6 @@ const Login = (props) => {
                     message: "请输入密码",
                   },
                 ],
-                initialValue: "123456", // 初始值
               })(
                 <Input
                   prefix={
@@ -111,11 +113,11 @@ const Login = (props) => {
               </Button>
             </Form.Item>
             <Form.Item>
-              <span>账号 : admin 密码 : 随便填</span>
+              <span>管理员账号 : admin 密码 : 随便填</span>
               <br />
-              <span>账号 : editor 密码 : 随便填</span>
+              <span>操作员账号 : editor 密码 : 随便填</span>
               <br />
-              <span>账号 : guest 密码 : 随便填</span>
+              <span>游客一账号 : guest 密码 : 随便填</span>
             </Form.Item>
           </Spin>
         </Form>

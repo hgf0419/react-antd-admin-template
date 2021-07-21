@@ -49,10 +49,10 @@ const LayoutHeader = (props) => {
       <Menu.Item key="project">
         <a
           target="_blank"
-          href="https://github.com/NLRX-WJC/react-antd-admin-template"
+          href="http://www.baidu.com"
           rel="noopener noreferrer"
         >
-          项目地址
+          测试外链
         </a>
       </Menu.Item>
       <Menu.Divider />

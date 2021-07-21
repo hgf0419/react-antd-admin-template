@@ -1,3 +1,4 @@
+// 路由注册
 import Loadable from 'react-loadable';
 import Loading from '@/components/Loading'
 const Dashboard = Loadable({loader: () => import(/*webpackChunkName:'Dashboard'*/'@/views/dashboard'),loading: Loading});
@@ -24,6 +25,7 @@ const Error404 = Loadable({loader: () => import(/*webpackChunkName:'Error404'*/'
 const User = Loadable({loader: () => import(/*webpackChunkName:'User'*/'@/views/user'),loading: Loading});
 const About = Loadable({loader: () => import(/*webpackChunkName:'About'*/'@/views/about'),loading: Loading});
 const Bug = Loadable({loader: () => import(/*webpackChunkName:'Bug'*/'@/views/bug'),loading: Loading});
+const Demo = Loadable({loader: () => import(/*webpackChunkName:'Bug'*/'@/views/demo'),loading: Loading});
 
 export default [
   { path: "/dashboard", component: Dashboard, roles: ["admin","editor","guest"] },
@@ -49,5 +51,8 @@ export default [
   { path: "/user", component: User, roles: ["admin"] },
   { path: "/about", component: About, roles: ["admin", "editor", "guest"] },
   { path: "/bug", component: Bug, roles: ["admin"] },
+  { path: "/demo", component: Demo, roles: [] },
   { path: "/error/404", component: Error404 },
 ];
+
+
